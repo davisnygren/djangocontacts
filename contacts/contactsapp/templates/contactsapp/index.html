@@ -1,0 +1,42 @@
+{% extends "contactsapp/base.html" %}
+
+{% block body %}
+<div class="ui container">
+    <h1 class="ui header">{% block title %}Contacts Index{% endblock %}</h1>
+    <div class="vertical-spacer"></div>
+
+    {% if all_contact_list %}
+    <table class="ui celled striped table">
+      <thead>
+          <tr>
+              <th>
+                  <i class="user icon"></i> Name
+              </th>
+              <th>
+                  <i class="mail icon"></i> Email
+              </th>
+              <th>
+                  <i class="phone icon"></i> Phone
+              </th>
+          </tr>
+      </thead>
+      <tbody>
+         {% for contact in all_contact_list %}
+         <div class = "item"></div>
+         <tr>
+            <td>
+              <a href="{% url 'contactsapp:detail' contact.pk %}">{{ contact.first_name }} {{ contact.last_name }}</a>
+          </td>
+          <td><a href="{% url 'contactsapp:detail' contact.pk %}">{{ contact.email }}</a></td>
+          <td><a href="{% url 'contactsapp:detail' contact.pk %}">{{ contact.phone }}</a></td>
+      </tr>
+      {% endfor %}
+
+  </tbody>
+</table>
+{% else %}
+<p>No contacts are available.</p>
+{% endif %}
+
+</div>
+{% endblock %}

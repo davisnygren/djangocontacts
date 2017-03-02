@@ -1,0 +1,51 @@
+{% extends "contactsapp/base.html" %}
+
+{% block body %}
+<div class="ui container">
+  <h1 class="ui header">{% block title %}Contact Detail{% endblock %}</h1>
+  <div class="vertical-spacer"></div>
+
+
+  <table class="ui celled striped table">
+    <tbody>
+      <tr>
+        <td>
+          <i class="user icon"></i> First Name
+        </td>
+        <td>{{ contact.first_name }}</td>
+      </tr>
+      <tr>
+        <td>
+          <i class="user icon"></i> Last Name
+        </td>
+        <td>{{ contact.last_name }}</td>
+      </tr>
+      <tr>
+        <td>
+        <i class="mail icon"></i> Email Address
+        </td>
+        <td>{{ contact.email }}</td>
+      </tr>
+      <tr>
+        <td>
+          <i class="phone icon"></i> Phone Number
+        </td>
+        <td>{{ contact.phone }}</td>
+      </tr>
+      <tr>
+        <td>
+          <i class="building icon"></i> Address
+        </td>
+        <td>{{ contact.address }}</td>
+      </tr>
+      <tr>
+        <td>
+          <i class="clock icon"></i> Date Added
+        </td>
+        <td>{{ contact.add_date }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+{% endblock %}
